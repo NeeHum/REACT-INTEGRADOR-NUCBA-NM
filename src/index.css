@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  list-style: none;
+}
+
+body {
+  background: rgb(92, 2, 98);
+  background: radial-gradient(
+    circle,
+    rgba(92, 2, 98, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+@media (max-width: 800px) {
+  body {
+    background-color: var(--purple);
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  body {
+    background-color: var(--purple);
+  }
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --blue: #0871fa;
+  --purple: #420352;
+  --darkpurple: #290133;
+  --pink: #ff26db;
+}
