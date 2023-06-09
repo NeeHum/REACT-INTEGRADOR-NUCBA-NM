@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Modal from "../auth/Modal";
+import Login from "../auth/Login";
 
 import {
   DivNav,
@@ -47,6 +49,8 @@ const Sidebar = ({ cartItems, setCartItems }) => {
   const [open, setOpen] = useState(false);
   const [opencart, setOpencart] = useState(false);
   const [showThanks, setShowThanks] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
   const handleRemoveFromCart = (index) => {
     const updatedCartItems = [...cartItems];
@@ -68,6 +72,27 @@ const Sidebar = ({ cartItems, setCartItems }) => {
     setTimeout(() => {
       setShowThanks(false);
     }, 3000);
+  };
+
+  const openModal = (content) => {
+    setModalContent(content);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const toggleModal = (content) => {
+    if (showModal) {
+      closeModal();
+    } else {
+      openModal(content);
+    }
+  };
+
+  const handleLoginClick = () => {
+    toggleModal(<Login />);
   };
 
   return (
@@ -94,17 +119,13 @@ const Sidebar = ({ cartItems, setCartItems }) => {
               </ASidebar>
             </LiSidebar>
             <LiSidebar>
-              <ButtonSidebar>
+              <ButtonSidebar onClick={handleLoginClick}>
                 <RiAccountCircleLine />
               </ButtonSidebar>
             </LiSidebar>
             <LiSidebar>
-              <ButtonSidebar>
-                {opencart ? (
-                  <RiCloseLine onClick={() => setOpencart(!opencart)} />
-                ) : (
-                  <RiShoppingCart2Line onClick={() => setOpencart(!opencart)} />
-                )}
+              <ButtonSidebar onClick={() => setOpencart(!opencart)}>
+                {opencart ? <RiCloseLine /> : <RiShoppingCart2Line />}
               </ButtonSidebar>
             </LiSidebar>
           </UlSidebar>
@@ -178,6 +199,9 @@ const Sidebar = ({ cartItems, setCartItems }) => {
           </ThankYou>
         )}
       </DivCart>
+
+      {/* ---Modal--- */}
+      {showModal && <Modal closeModal={closeModal}>{modalContent}</Modal>}
     </>
   );
 };
