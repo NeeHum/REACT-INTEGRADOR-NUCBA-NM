@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../auth/Modal";
 import Login from "../auth/Login";
+import { Link } from "react-scroll";
 
 import {
   DivNav,
@@ -8,7 +9,6 @@ import {
   LogoNav,
   UlSidebar,
   LiSidebar,
-  ASidebar,
   SpanCopy,
   ButtonSidebar,
 } from "./SidebarStyled.js";
@@ -104,19 +104,61 @@ const Sidebar = ({ cartItems, setCartItems }) => {
           <UlSidebar>
             <LogoNav src={logo}></LogoNav>
             <LiSidebar>
-              <ASidebar href="#">
+              <Link
+                to="mainSection"
+                smooth={true}
+                duration={500}
+                style={{
+                  padding: "10px 10px 2px 10px",
+                  borderRadius: "10px",
+                  color: "var(--pink)",
+                  cursor: "pointer",
+                }}
+                activeStyle={{
+                  backgroundColor: "var(--pink)",
+                  color: "var(--white)",
+                }}
+              >
                 <RiHome4Line />
-              </ASidebar>
+              </Link>
             </LiSidebar>
             <LiSidebar>
-              <ASidebar href="#">
+              <Link
+                to="salesSection"
+                smooth={true}
+                duration={500}
+                style={{
+                  padding: "10px 10px 2px 10px",
+                  borderRadius: "10px",
+                  color: "var(--pink)",
+                  cursor: "pointer",
+                }}
+                activeStyle={{
+                  backgroundColor: "var(--pink)",
+                  color: "var(--white)",
+                }}
+              >
                 <RiPercentLine />
-              </ASidebar>
+              </Link>
             </LiSidebar>
             <LiSidebar>
-              <ASidebar href="#">
+              <Link
+                to="cardsSection"
+                smooth={true}
+                duration={500}
+                style={{
+                  padding: "10px 10px 2px 10px",
+                  borderRadius: "10px",
+                  color: "var(--pink)",
+                  cursor: "pointer",
+                }}
+                activeStyle={{
+                  backgroundColor: "var(--pink)",
+                  color: "var(--white)",
+                }}
+              >
                 <RiGamepadLine />
-              </ASidebar>
+              </Link>
             </LiSidebar>
             <LiSidebar>
               <ButtonSidebar onClick={handleLoginClick}>

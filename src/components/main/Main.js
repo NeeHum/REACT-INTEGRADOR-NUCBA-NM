@@ -14,15 +14,15 @@ const Main = () => {
     <>
       <MainMain>
         <header>
-          <DivMain>
+          <DivMain id="mainSection">
             <WallpaperHome src={miles}></WallpaperHome>
           </DivMain>
-          <DivMain>
-            <TittleSales>❄WINTER HOLIDAY DEALS❄</TittleSales>
+          <DivMain id="salesSection">
+            <TittleSales >❄WINTER HOLIDAY DEALS❄</TittleSales>
             <WallpaperHome src={sale}></WallpaperHome>
           </DivMain>
         </header>
-        <DivMain>
+        <DivMain id="cardsSection">
           <TittleCategories>WHAT DO YOU WANT TO PLAY TODAY?</TittleCategories>
         </DivMain>
       </MainMain>
